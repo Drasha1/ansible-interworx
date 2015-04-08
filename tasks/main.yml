@@ -1,9 +1,12 @@
 ---
-- name: make sure curl is installed
-  yum: name=curl state=present
+- name: download interworx install script
+  get_url: url=interworx.com/inst.sh dest=/root/inst.sh mode=700
 
-- name: download and install from inetrworx setup script
-  shell: sh <((curl -sL interworx.com/inst.sh)) -l
+- name: run inteworx install script
+  shell: sh /root/inst.sh -l
 
 - name: initialization step for interworx. setting email, password, and license
   shell: /home/interworx/bin/goiworx.pex --email {{ iworxadminemail }} --password {{ iworxadminpassword }} --key {{ iworxlicense }}
+
+- name: cleanup install script
+  file: path=/root/inst.sh state=absent
