@@ -7,6 +7,7 @@ Overview
 Requirements
 -----------------
 - centos 5 or 6. untested on 7
+- valid interworx license key
 
 Ansible Variables
 --------------------------
