@@ -1,6 +1,6 @@
 ---
 - name: download interworx install script
-  get_url: url=interworx.com/inst.sh dest=/root/inst.sh mode=700
+  get_url: url=http://interworx.com/inst.sh dest=/root/inst.sh mode=700
 
 - name: run inteworx install script
   shell: sh /root/inst.sh -l
